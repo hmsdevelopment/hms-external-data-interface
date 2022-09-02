@@ -5,6 +5,108 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "external": "apps/external",
-    "external-e2e": "apps/external-e2e"
+    "msgraph-ui": {
+      "root": "apps/msgraph-ui",
+      "sourceRoot": "apps/msgraph-ui/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:webpack",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/msgraph-ui",
+            "index": "apps/msgraph-ui/src/index.html",
+            "baseHref": "/",
+            "main": "apps/msgraph-ui/src/main.tsx",
+            "polyfills": "apps/msgraph-ui/src/polyfills.ts",
+            "tsConfig": "apps/msgraph-ui/tsconfig.app.json",
+            "assets": [
+              "apps/msgraph-ui/src/favicon.ico",
+              "apps/msgraph-ui/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "development": {
+              "extractLicenses": false,
+              "optimization": false,
+              "sourceMap": true,
+              "vendorChunk": true
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/msgraph-ui/src/environments/environment.ts",
+                  "with": "apps/msgraph-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "msgraph-ui:build",
+            "hmr": true
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "msgraph-ui:build:development"
+            },
+            "production": {
+              "buildTarget": "msgraph-ui:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/msgraph-ui/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/utils",
+            "main": "libs/utils/src/index.ts",
+            "tsConfig": "libs/utils/tsconfig.lib.json",
+            "assets": [
+              "libs/utils/*.md"
+            ]
+          }
+        }
+      },
+      "tags": []
+    }
   }
 }
