@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
+    "azure-data-factory": "libs/azure-data-factory",
     "external": "apps/external",
     "msgraph-ui": {
       "root": "apps/msgraph-ui",

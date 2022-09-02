@@ -22,6 +22,9 @@
       "@hms-external-data-interface/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
+      "@hms-external-data-interface/azure-data-factory": [
+        "libs/azure-data-factory/src/index.ts"
+      ],
       "@hms-external-data-interface/utils": [
         "libs/utils/src/index.ts"
       ]

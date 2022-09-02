@@ -1,0 +1,22 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/azure-data-factory/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/libs/azure-data-factory",
+        "main": "libs/azure-data-factory/src/index.ts",
+        "tsConfig": "libs/azure-data-factory/tsconfig.lib.json",
+        "assets": [
+          "libs/azure-data-factory/*.md"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
